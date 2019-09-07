@@ -18,4 +18,11 @@ for i in ['789/','456*','123+','.0-=']:
     b.pack(side=LEFT,padx=10,pady=10,expand=YES,fill=BOTH)
   f.pack(side=TOP,padx=10,pady=10,expand=YES,fill=BOTH)
 
+f1=Frame(root,bg='#dcdde1')
+clear=Button(f1,text='C',bg='#00a8ff',fg='#353b48',font='Roboto 34',command=clear)
+clear.pack(side=LEFT,padx=10,pady=10,expand=YES,fill=BOTH)
+clear1=Button(f1,text='CE',bg='#00a8ff',fg='#353b48',font='Roboto 34',command=clear1)
+clear1.pack(side=LEFT,padx=10,pady=10,expand=YES,fill=BOTH)
+f1.pack(side=TOP,padx=10,pady=10,expand=YES,fill=BOTH)
+
 root.mainloop()
