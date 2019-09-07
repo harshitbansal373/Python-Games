@@ -3,6 +3,12 @@ import time
 root=Tk()
 root.title('Calculator')
 root.config(bg='wheat')
+
+def con():
+  label['text']=time.ctime()
+  label.after(1000,con)
+
+
 s=''
 text=StringVar()
 f=Frame(root,bg='#dcdde1')
@@ -25,4 +31,9 @@ clear1=Button(f1,text='CE',bg='#00a8ff',fg='#353b48',font='Roboto 34',command=cl
 clear1.pack(side=LEFT,padx=10,pady=10,expand=YES,fill=BOTH)
 f1.pack(side=TOP,padx=10,pady=10,expand=YES,fill=BOTH)
 
+f2=Frame(root,bg='#dcdde1')
+label=Label(f2,bg='#00a8ff',fg='#353b48',font='roboto 34')
+label.pack(padx=10,pady=10,expand=YES,fill=BOTH)
+f2.pack(padx=10,pady=10,expand=YES,fill=BOTH)
+con()
 root.mainloop()
