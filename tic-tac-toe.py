@@ -6,6 +6,27 @@ root.config(bg='#fffaaa')
 img1=PhotoImage(file='o.png')
 img2=PhotoImage(file='x.png')
 
+def check():
+  global flag
+  win=[{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{6,4,2}]
+  if p==True:
+    for s in win:
+      if p2<=s:
+        flag=False
+        tkinter.messagebox.showinfo('result','player2 won!!!')
+        reset()
+        break
+  if p==False:
+    for s in win:
+      if p1<=s:
+        flag=False
+        tkinter.messagebox.showinfo('result','player1 won!!!')
+        reset()
+        break
+  if count==9 and flag==False:
+    tkinter.messagebox.showinfo('result','draw')
+    reset()
+
 def solve(t):
   global p
   global count
