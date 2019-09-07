@@ -19,10 +19,20 @@ def solve():
   else:
     text.set(s)
 
+def clear():
+  global s
+  s=''
+  text.set(s)
+
+def clear1():
+  global s
+  s=text.get()
+  s=s[:len(s)-1]
+  text.set(s)
+
 def con():
   label['text']=time.ctime()
   label.after(1000,con)
-
 
 s=''
 text=StringVar()
@@ -52,3 +62,4 @@ label.pack(padx=10,pady=10,expand=YES,fill=BOTH)
 f2.pack(padx=10,pady=10,expand=YES,fill=BOTH)
 con()
 root.mainloop()
+
