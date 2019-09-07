@@ -4,6 +4,21 @@ root=Tk()
 root.title('Calculator')
 root.config(bg='wheat')
 
+def display(x):
+  global s
+  s=s+x
+  text.set(s)
+
+def solve():
+  global s
+  try:
+    s=str(eval(text.get()))
+  except Exception as e:
+    text.set(e)
+    s=''
+  else:
+    text.set(s)
+
 def con():
   label['text']=time.ctime()
   label.after(1000,con)
