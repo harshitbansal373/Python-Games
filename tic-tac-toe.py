@@ -6,6 +6,35 @@ root.config(bg='#fffaaa')
 img1=PhotoImage(file='o.png')
 img2=PhotoImage(file='x.png')
 
+def intial():
+  global lb
+  for i in range(3):
+    for j in range(3):
+      lb.append(Button(root,width=10,height=5,bg='#abcdef',state='disable',command=lambda t=(i,j):solve(t)))
+      lb[-1].grid(row=i,column=j,padx=5,pady=5,sticky='nswe')
+
+def start():
+  global lb
+  global sb
+  sb['state']='disable'
+  for b in lb:
+    b['state']='active'
+
+def reset():
+  global lb
+  global sb
+  global p
+  global p1
+  global p2
+  global count
+  lb=[]
+  p=True
+  p1.clear()
+  p2.clear()
+  count=0
+  sb['state']='active'
+  intial()
+
 def check():
   global flag
   win=[{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{6,4,2}]
