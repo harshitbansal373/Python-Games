@@ -6,6 +6,26 @@ root.config(bg='#fffaaa')
 img1=PhotoImage(file='o.png')
 img2=PhotoImage(file='x.png')
 
+def solve(t):
+  global p
+  global count
+  global p1
+  global p2
+  i=t[0]*3+t[1]
+  b=lb[i]
+  b['state']='disable'
+  count=count+1
+  if p==True:
+    b['image']=img1
+    p1.add(i)
+    p=False
+  else:
+    b['image']=img2
+    p2.add(i)
+    p=True
+  if count>=5:
+    check()
+
 lb=[]
 flag=True
 p=True
