@@ -21,6 +21,17 @@ def start():
   for b in lb:
     b['state']='active'
 
+def restart():
+  global sc1
+  global sc2
+  global pl1
+  global pl2
+  sc1=0
+  sc2=0
+  pl1['text']='Player1 : 0'
+  pl2['text']='Player2 : 0'
+  reset()
+
 def reset():
   global lb
   global sb
@@ -94,7 +105,7 @@ pl1=Label(f,text='Player1 : 0',bg='#abcdef',height=5)
 pl1.pack(side='left',padx=5,pady=5,expand=YES,fill=BOTH)
 sb=Button(f,text='Start',bg='#abcdef',height=5,command=start)
 sb.pack(side='left',padx=5,pady=5,expand=YES,fill=BOTH)
-rb=Button(f,text='Restart',bg='#abcdef',height=5)
+rb=Button(f,text='Restart',bg='#abcdef',height=5,command=restart)
 rb.pack(side='left',padx=5,pady=5,expand=YES,fill=BOTH)
 pl2=Label(f,text='Player2 : 0',bg='#abcdef',height=5)
 pl2.pack(side='left',padx=5,pady=5,expand=YES,fill=BOTH)
