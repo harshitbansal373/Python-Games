@@ -5,12 +5,13 @@ root.title('tic-tac-toe')
 root.config(bg='#fffaaa')
 img1=PhotoImage(file='o.png')
 img2=PhotoImage(file='x.png')
+img3=PhotoImage(file='bg.png')
 
 def intial():
   global lb
   for i in range(3):
     for j in range(3):
-      lb.append(Button(root,width=10,height=5,bg='#abcdef',state='disable',command=lambda t=(i,j):solve(t)))
+      lb.append(Button(root,bg='#abcdef',image=img3,state='disable',command=lambda t=(i,j):solve(t)))
       lb[-1].grid(row=i,column=j,padx=5,pady=5,sticky='nswe')
 
 def start():
@@ -36,23 +37,18 @@ def reset():
   intial()
 
 def check():
-  global flag
   win=[{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{6,4,2}]
   if p==True:
     for s in win:
-      if p2<=s:
-        flag=False
+      if s<=p2:
         tkinter.messagebox.showinfo('result','player2 won!!!')
         reset()
-        break
-  if p==False:
+  else:
     for s in win:
-      if p1<=s:
-        flag=False
+      if s<=p1:
         tkinter.messagebox.showinfo('result','player1 won!!!')
         reset()
-        break
-  if count==9 and flag==False:
+  if count==9:
     tkinter.messagebox.showinfo('result','draw')
     reset()
 
@@ -77,11 +73,10 @@ def solve(t):
     check()
 
 lb=[]
-flag=True
+count=0
 p=True
 p1=set()
 p2=set()
-count=0
 intial()
 sb=Button(root,width=10,height=5,text='start',bg='#abcdef',command=start)
 sb.grid(row=3,column=1,padx=5,pady=5,sticky='nswe')
