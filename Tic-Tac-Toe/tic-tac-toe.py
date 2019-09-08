@@ -5,13 +5,12 @@ root.title('tic-tac-toe')
 root.config(bg='#fffaaa')
 img1=PhotoImage(file='o.png')
 img2=PhotoImage(file='x.png')
-img3=PhotoImage(file='bg.png')
 
 def intial():
   global lb
   for i in range(3):
     for j in range(3):
-      lb.append(Button(root,bg='#abcdef',image=img3,state='disable',command=lambda t=(i,j):solve(t)))
+      lb.append(Button(root,bg='#abcdef',height=15,width=30,state='disable',command=lambda t=(i,j):solve(t)))
       lb[-1].grid(row=i,column=j,padx=5,pady=5,sticky='nswe')
 
 def start():
